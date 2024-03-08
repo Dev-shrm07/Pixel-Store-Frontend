@@ -16,7 +16,6 @@ const RAS = () => {
     try {
       setLoading(true);
       const statusz = await API.chechSessionStatus(postid!);
-      console.log(statusz)
       setStatus(statusz);
     } catch (error) {
       console.error(error);
