@@ -3,7 +3,7 @@ import { unescapeLeadingUnderscores } from "typescript";
 import { Post } from "../models/post";
 import {User} from "../models/user"
 
-const url = "https://pixel-store-backend.onrender.com";
+const url = "https://13.201.185.199";
 //const url = "http://localhost:8000"
 export interface uploadPost {
   image: string;
