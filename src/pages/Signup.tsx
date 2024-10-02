@@ -3,10 +3,11 @@ import * as POSTAPI from "../networks/postapi"
 import { signupcred } from "../networks/postapi";
 import {User} from "../models/user"
 import { useNavigate } from "react-router-dom";
+import { LinearProgress } from "@mui/material";
 
 const Login = ()=>{
     const Navigate = useNavigate()
-    
+    const[loading, setLoading] = useState<boolean>(false)
     const[formData, setFormData] = useState<signupcred>({
         email:"",
         username:"",
@@ -17,15 +18,18 @@ const Login = ()=>{
         setFormData({...formData, [name]:value})
     }
     const onRegister= (user:User)=>{
+        setLoading(true)
         setFormData({
             username:"",
             email:"",
             password:""
         })
         Navigate("/")
+        setLoading(false)
     }
     async function submitData(data:signupcred){
         try {
+            setLoading(true)
             const user = await POSTAPI.Signup(data)
             onRegister(user)
         } catch (error) {
@@ -36,7 +40,7 @@ const Login = ()=>{
     }
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-        
+        setLoading(true)
         if(!formData.username?.trim() || !formData.email?.trim() || !formData.password.trim() ){
             alert("Please enter complete Parameters")
             
@@ -46,7 +50,7 @@ const Login = ()=>{
         }
         
     }
-    return(
+    const z = (
         <div className="login-page">
             <h1 className="login-page-heading">Sign Up</h1>
             <div className="loginpage-container">
@@ -60,6 +64,9 @@ const Login = ()=>{
                 <button type="submit" form="signup-form" className="btn submit-btn submit-btn-for-login">Register</button>
             </div>
         </div>
+    )
+    return(
+        <>{loading ? <LinearProgress/> : z}</>
     )
 }
 
