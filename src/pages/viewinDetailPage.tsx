@@ -99,7 +99,7 @@ const DetailPage = () => {
         </div>
         <div className="other-content">
           <h4>{postDisplay?.category}</h4>
-          <p>{postDisplay?.description}</p>
+          <p style={{color:"#ddeae0"}}>{postDisplay?.description}</p>
         </div>
         <button className="cun btn" onClick={savePost}>
           Save
