@@ -5,6 +5,7 @@ import { ImCross } from "react-icons/im";
 import { GContext } from "../globalcontext";
 import { ContextType } from "../globalcontext";
 import * as API from "../networks/postapi"
+import logo from "../assets/logo.png"
 
 const Navbar = () => {
   const {user} = React.useContext(GContext) as ContextType
@@ -31,8 +32,10 @@ const Navbar = () => {
   }
   const Logout = ()=>{
      logout()
-     Navigate("/")
-     window.location.reload()
+     setTimeout(() => {
+      Navigate("/");
+      window.location.reload();
+    }, 3000);
   }
 
   const ProfileEdit = ()=>{
@@ -42,44 +45,46 @@ const Navbar = () => {
   return (
     <div className="navbar-nl x">
       <span className="nav-heading">
-        <h1 className="navheading" onClick={ProfileEdit}>Pixel Store</h1>
+        <h1 className="navheading" onClick={ProfileEdit}>{user?.username} 🖊</h1>
+        {/* <img src={logo} className="nav-logo"/> */}
       </span>
 
+      
       <AiOutlineMenu className="menu-icon" onClick={() => setFloat(true)} />
 
       <div className="nav-btns res" id="res">
       <button className="opt-btn btn" onClick={Home}>
           Home
         </button>
-        <button className="-opt-btn btn" onClick={Saved}>
+        <button className="opt-btn btn" onClick={Saved}>
           Saved
         </button>
         <button className="opt-btn btn" onClick={Myposts}>
           My Posts
         </button>
         <button className="opt-btn btn" onClick={upload}>
-          upload
+          Upload
         </button>
-        <button className="opt-btn btn" onClick={Logout}>
+        <button className="-opt-btn btn" onClick={Logout}>
           Logout
         </button>
       </div>
       {float && (
         <div className="floating-navbar">
           <ImCross className="cross" onClick={() => setFloat(false)} />
-          <button className="nav-btn btn" onClick={Home}>
+          <button className="nav-btn btn btnx" onClick={Home}>
           Home
         </button>
-          <button className="nav-btn btn" onClick={Saved}>
+          <button className="nav-btn btn btnx" onClick={Saved}>
           Saved
         </button>
-        <button className="nav-btn btn" onClick={Myposts}>
+        <button className="nav-btn btn btnx" onClick={Myposts}>
           My Posts
         </button>
-        <button className="nav-btn btn" onClick={upload}>
-          upload
+        <button className="btnx nav-btn btn btn1" onClick={upload}>
+          Upload
         </button>
-        <button className="opt-btn btn" onClick={Logout}>
+        <button className="nav-btn btn btn1" onClick={Logout}>
           Logout
         </button>
         </div>

@@ -44,8 +44,8 @@ const Register = () => {
   };
   const x = (
     <>
-      <h1 className="h1-general">Welcome {user?.username}</h1>
-      <div className="ras-center">
+      <h1 className="a1" style={{color:"#ddeae0",textAlign:"center"}}>Welcome {user?.username}, Register yourself as a seller to sell your images.</h1>
+      <div className="ras-center a1">
         <button className="btn change-btn" onClick={Registeruser}>
           Regitser as a Seller
         </button>

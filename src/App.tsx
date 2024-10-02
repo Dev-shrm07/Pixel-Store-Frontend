@@ -29,7 +29,7 @@ function App() {
  
   
   return (
-    <div>{user===null ? <BroswerPage/> : <BrowserPageUser name={Name}/>}</div>
+    <div className="body">{user===null ? <BroswerPage/> : <BrowserPageUser name={Name}/>}</div>
   );
 }
 

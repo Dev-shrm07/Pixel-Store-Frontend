@@ -65,14 +65,14 @@ const BroswerPage = () => {
   }, []);
   const resetFilters = () => {
     setFilteredPosts(posts);
-    setMinPrice(10);
+    setMinPrice(0);
     setMaxPrice(10000);
     setFilter({
       title: "",
       category: "",
     });
     setMaxPrice(10000);
-    setMinPrice(10);
+    setMinPrice(0);
   };
   const applyfilter = () => {
     const newFilteredPosts = posts.filter(
@@ -88,7 +88,7 @@ const BroswerPage = () => {
   const content = (
     <div className="browse-page">
       <Navbar/>
-      <h1 className="pixelstoreheading">Welcome to Pixel Store</h1>
+      <h1 className="pixelstoreheading" style={{color:"#ddeae0"}}>Welcome to Pixel Store</h1>
       <div className="filter-section">
         <div className="title-srch">
           <input
@@ -120,12 +120,12 @@ const BroswerPage = () => {
         </div>
         <div className="price-srch">
           <div className="range-label">
-            <span>Min: {minPrice}</span>
-            <span>Max: {maxPrice}</span>
+            <span className="range-label">Min: {minPrice}</span>
+            <span className="range-label">Max: {maxPrice}</span>
           </div>
           <input
             type="range"
-            min={10}
+            min={0}
             max={10000}
             step={10}
             value={minPrice}
@@ -134,7 +134,7 @@ const BroswerPage = () => {
           />
           <input
             type="range"
-            min={10}
+            min={0}
             max={10000}
             step={10}
             value={maxPrice}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { ImCross } from "react-icons/im";
-
+import logo from "../assets/logo.png"
 const Navbar = () => {
   const [float, setFloat] = useState<boolean>(false);
   const Navigate = useNavigate();
@@ -16,8 +16,13 @@ const Navbar = () => {
   return (
     <div className="navbar-nl">
       <span className="nav-heading">
-        <h1 className="navheading">Welcome to Pixel Store</h1>
+        <h1 className="navheading">Pixel Store</h1>
+        <img src={logo} className="nav-logo"/>
+       
+ 
+
       </span>
+      
 
       <AiOutlineMenu className="menu-icon" onClick={() => setFloat(true)} />
 

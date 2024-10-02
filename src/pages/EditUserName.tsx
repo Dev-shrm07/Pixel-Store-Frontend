@@ -96,11 +96,14 @@ const RAS = () => {
 
   const content = (
     <>
-      <h1 className="h1-general">Welcome {user?.username}</h1>
+      <h1 className="h1-general a1" style={{color:"#ddeae0", fontSize:"2rem"}}>Hello {user?.username}, You can edit your profile</h1>
       <div className="ras-center">
-        <h3 className="h4-general">Edit Username: </h3>
+        <div className="c1 cuncon loginpage-container">
+        
+        <h3 className="h4-general" style={{color:"#ddeae0"}}>Edit Username: </h3>
+        <div className="a">
         <input
-          className="abc"
+          className="iun inp login-inp"
           value={x}
           type="text"
           name="username"
@@ -108,23 +111,26 @@ const RAS = () => {
           onChange={handleInputChange}
         />
 
-        <button className="btn change-btn" onClick={EditUser}>
+        <button className="cun btn" onClick={EditUser}>
           Change Username
         </button>
-
-        <h3 className="h4-general">Edit Password: </h3>
-        <h5>New Password</h5>
+        </div>
+        </div>
+        
+        <div className="cuncon loginpage-container">
+        <h3 className="h4-general"  style={{color:"#ddeae0"}}>Edit Password: </h3>
+        <h4 style={{color:"#444444"}}>New Password</h4>
         <input
-          className="abc"
+          className="iun inp login-inp"
           value={p1}
           type="password"
           name="password"
           id="2"
           onChange={handleInputChange_p}
         />
-        <h5>Confirm Password</h5>
+        <h4 style={{color:"#444444"}}>Confirm Password</h4>
         <input
-          className="abc"
+          className="iun inp login-inp"
           value={p2}
           type="password"
           name="password_"
@@ -132,15 +138,16 @@ const RAS = () => {
           onChange={handleInputChange_p_}
         />
 
-        <button className="btn change-btn" onClick={EditPassword}>
+        <button className="cun btn" onClick={EditPassword}>
           Change Password
         </button>
         <button
-          className="btn change-btn"
+          className="cun btn"
           onClick={() => Navigate("/register")}
         >
           Regitser as a Seller
         </button>
+        </div>
       </div>
     </>
   );

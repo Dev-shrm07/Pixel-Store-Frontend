@@ -164,10 +164,10 @@ const Editpage = () => {
   };
 
   return (
-    <div className="upload page">
+    <div className="upload_page">
       <Navbar/>
-      <h1 className="heading-upload">Edit a Post</h1>
-      <div className="upload-form">
+      <h1 className="heading-upload a1" style={{color:"#ddeae0"}}>Edit a Post</h1>
+      <div className="loginpage-container upload-form">
         <form onSubmit={handleSubmit} id="uploadform" className="form">
           <input
             placeholder="title"
@@ -176,6 +176,7 @@ const Editpage = () => {
             id="1"
             value={formdata.title}
             onChange={handleInputChange}
+             className="inpx login-inp inp"
           />
           <input
             type="text"
@@ -184,6 +185,7 @@ const Editpage = () => {
             id="2"
             value={formdata.description}
             onChange={handleInputChange}
+             className="inpx login-inp inp"
           />
           <input
             type="number"
@@ -194,15 +196,17 @@ const Editpage = () => {
             max={2000}
             value={formdata.price}
             onChange={handleInputChange}
+             className="inpx login-inp inp"
           />
 
           <select
             id="form"
             name="category"
-            className="options"
             placeholder="category"
+            className="inpx ax options"
             value={formdata.category}
             onChange={handleInputChange}
+            
           >
             <option value="">Select a category</option>
             <option value="wallpaper">wallpaper</option>
@@ -219,6 +223,7 @@ const Editpage = () => {
             accept=".jpg, .jpeg, .png"
             id="5"
             onChange={handleFileChange}
+             className="iup inpx login-inp inp"
           />
           <div className="preview_img">
             {formdata.image_watermark && (
@@ -229,12 +234,12 @@ const Editpage = () => {
               />
             )}
           </div>
-          <button type="submit" form="uploadform" className="btn submitbtn">
+          <button type="submit" form="uploadform" className="cun btn submitbtn">
             Edit
           </button>
           
         </form>
-        <button className="btn submitbtn" onClick={deletepost}>
+        <button className="cun btn submitbtn" onClick={deletepost}>
             delete
           </button>
       </div>

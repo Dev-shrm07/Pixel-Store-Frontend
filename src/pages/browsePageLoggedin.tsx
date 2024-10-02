@@ -4,7 +4,7 @@ import Navbar from "../components/navbar";
 import { Post } from "../models/post";
 import Card from "../components/postcard";
 import { LinearProgress } from "@mui/material";
-
+import logo from "../assets/logo.png"
 import {GContext} from "../globalcontext"
 import {ContextType} from "../globalcontext"
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ const BroswerPage = ({name}:props) => {
   }
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
-  const [minPrice, setMinPrice] = useState<number>(10);
+  const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(10000);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -76,14 +76,14 @@ const BroswerPage = ({name}:props) => {
   const resetFilters = () => {
     const postcopy = [...posts]
     setFilteredPosts(postcopy);
-    setMinPrice(10);
+    setMinPrice(0);
     setMaxPrice(10000);
     setFilter({
       title: "",
       category: "",
     });
     setMaxPrice(10000);
-    setMinPrice(10);
+    setMinPrice(0);
   };
   const applyfilter = () => {
     const newFilteredPosts = posts.filter(
@@ -98,7 +98,11 @@ const BroswerPage = ({name}:props) => {
   };
   const content = (
     <div className="browse-page">
-      <h1 className="pixelstoreheading">Welcome to Pixel Store {name}</h1>
+      {/* <h1 className="pixelstoreheading a1" style={{color:"#ddeae0"}}>Welcome to Pixel Store {name}</h1> */}
+      <span className="nav-heading a1">
+        <h1 className="pixelstoreheading" style={{color:"#ddeae0",fontSize:"3.4rem"}}>Pixel Store</h1>
+        <img src={logo} className="nav-logo" style={{width:"100px", height:"100px"}}/>
+      </span>
       <div className="filter-section">
         <div className="title-srch">
           <input
@@ -135,7 +139,7 @@ const BroswerPage = ({name}:props) => {
           </div>
           <input
             type="range"
-            min={10}
+            min={0}
             max={10000}
             step={10}
             value={minPrice}
@@ -144,7 +148,7 @@ const BroswerPage = ({name}:props) => {
           />
           <input
             type="range"
-            min={10}
+            min={0}
             max={10000}
             step={10}
             value={maxPrice}

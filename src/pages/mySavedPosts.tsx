@@ -28,7 +28,7 @@ const SavedPage = () => {
   }
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
-  const [minPrice, setMinPrice] = useState<number>(10);
+  const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(10000);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -75,14 +75,14 @@ const SavedPage = () => {
   }, []);
   const resetFilters = () => {
     setFilteredPosts(posts);
-    setMinPrice(10);
+    setMinPrice(0);
     setMaxPrice(10000);
     setFilter({
       title: "",
       category: "",
     });
     setMaxPrice(10000);
-    setMinPrice(10);
+    setMinPrice(0);
   };
   const applyfilter = () => {
     const newFilteredPosts = posts.filter(
@@ -97,7 +97,7 @@ const SavedPage = () => {
   };
   const content = (
     <div className="browse-page">
-      <h1 className="pixelstoreheading">Your Saved Posts</h1>
+      <h1 className="pixelstoreheading a1" style={{color:"#ddeae0"}}>Your Saved Posts</h1>
       <div className="filter-section">
         <div className="title-srch">
           <input
@@ -134,7 +134,7 @@ const SavedPage = () => {
           </div>
           <input
             type="range"
-            min={10}
+            min={0}
             max={10000}
             step={10}
             value={minPrice}
@@ -143,7 +143,7 @@ const SavedPage = () => {
           />
           <input
             type="range"
-            min={10}
+            min={0}
             max={10000}
             step={10}
             value={maxPrice}

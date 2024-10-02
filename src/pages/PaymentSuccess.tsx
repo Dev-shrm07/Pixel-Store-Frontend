@@ -58,7 +58,8 @@ const RAS = () => {
   );
   const x = (
     <>
-      <h3 className="h4-general">
+    <div style={{backgroundColor:"black"}}>
+      <h3 className="h4-general" style={{color:"#ddeae0"}}>
         {status?.completed ? "CHeck Your Status" : "Please Try again"}
       </h3>
 
@@ -72,6 +73,7 @@ const RAS = () => {
             Try again
           </button>
         )}
+      </div>
       </div>
     </>
   );

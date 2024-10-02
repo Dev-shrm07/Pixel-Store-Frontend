@@ -9,11 +9,11 @@ interface PostProps{
 const Card = ({post,onclick}:PostProps)=>{
     return(
         <>
-        <div className="card" onClick={onclick}>
+        <div className="card" onClick={onclick} style={{border:"2px solid #444444"}}>
             <img src={post.image_watermark} alt="" className="cardimg"/>
             <div className="text-card">
-                <h1 className="post-title">{post.title}</h1>
-                <h4>{post.category}</h4>
+                <div className="post-title">{post.title}</div>
+                <div className="post-cat">{post.category}</div>
             </div>
             <div className="text-card">
                 <h3>₹ {post.price}</h3>

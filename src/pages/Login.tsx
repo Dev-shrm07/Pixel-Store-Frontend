@@ -65,10 +65,10 @@ const Login = ()=>{
     return(
         <div className="login-page">
             <h1 className="login-page-heading">Login</h1>
-            <div className="loginpage-container">
+            <div className="loginpage-container" style={{border:" 0.5px solid #444444"}}>
                 <form id="login-form" className="login-form" onSubmit={handleSubmit}>
                     <input type="text" name="username" id="1" placeholder="username" className="inp login-inp" value={formData.username} onChange={handleInputChange}/>
-                    <div className="or">or</div>
+                    <div className="or"><p style={{color:"#444444"}}>or</p></div>
                     <input type="email" name="email" id="2" placeholder="email"className="inp login-inp" value={formData.email} onChange={handleInputChange}/>
                     <input type="password" name="password" id="3" placeholder="password" className="inp login-inp" value={formData.password} onChange={handleInputChange}/>
                 </form>

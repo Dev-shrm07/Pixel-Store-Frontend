@@ -6,6 +6,7 @@ import Navbar from "../components/navbar";
 import * as C from "../networks/postapi";
 import { LinearProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { logDOM } from "@testing-library/react";
 
 const DetailPage = () => {
   const Navigate = useNavigate();
@@ -34,7 +35,9 @@ const DetailPage = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false)
+        },2000);
       }
     }
     Fetch(post!);
@@ -72,7 +75,7 @@ const DetailPage = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      setLoading(true);
     }
   }
   const Buy = () => {
@@ -84,7 +87,7 @@ const DetailPage = () => {
     }
   };
 
-  const content = (
+  const content = postDisplay && !loading ?(
     <div className="post-container-detail">
       <div className="image-cont">
         <img src={postDisplay?.image_watermark} alt="" className="im-wm" />
@@ -92,21 +95,21 @@ const DetailPage = () => {
       <div className="text-cont">
         <div className="title-price-cont">
           <h1 className="post-titlex">{postDisplay?.title}</h1>
-          <h3>{`${postDisplay?.price}₹`}</h3>
+          <h3  style={{color:"#ddeae0"}}>{`${postDisplay?.price}₹`}</h3>
         </div>
         <div className="other-content">
           <h4>{postDisplay?.category}</h4>
           <p>{postDisplay?.description}</p>
         </div>
-        <button className="btn" onClick={savePost}>
+        <button className="cun btn" onClick={savePost}>
           Save
         </button>
-        <button className="btn" onClick={Buy}>
+        <button className="cun btn" onClick={Buy}>
           Buy
         </button>
       </div>
     </div>
-  );
+  ): null;
   const z = <div>Not a valid request</div>;
   const x = <>{post ? content : z}</>;
   return (

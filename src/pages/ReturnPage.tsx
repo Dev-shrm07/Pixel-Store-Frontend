@@ -34,7 +34,8 @@ const RAS = () => {
   };
   const x = (
     <>
-      <h3 className="h4-general">
+    <div style={{backgroundColor:"black"}}>
+      <h3 className="h4-general" style={{color:"#ddeae0"}}>
         {account?.registered
           ? "Reg successfull, return to home"
           : "Try to register again if there was some problem during it or wait, as it generally takes 2-3 days for verification"}
@@ -50,6 +51,7 @@ const RAS = () => {
             Try again
           </button>
         )}
+      </div>
       </div>
     </>
   );

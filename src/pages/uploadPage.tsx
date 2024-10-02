@@ -171,11 +171,11 @@ const Uploadpage = () => {
   };
 
   return (
-    <div className="upload page">
+    <div className="upload_page">
       <Navbar/>
-      <h1 className="heading-upload">Create a Post</h1>
-      <div className="upload-form">
-        <form onSubmit={handleSubmit} id="uploadform" className="form">
+      <h1 className="heading-upload a1" style={{color:"#ddeae0"}}>Create a Post</h1>
+      <div className="loginpage-container upload-form">
+        <form onSubmit={handleSubmit} id="bx uploadform" className="form">
           <input
             placeholder="title"
             type="text"
@@ -183,6 +183,7 @@ const Uploadpage = () => {
             id="1"
             value={formdata.title}
             onChange={handleInputChange}
+            className="inpx login-inp inp"
           />
           <input
             type="text"
@@ -191,6 +192,7 @@ const Uploadpage = () => {
             id="2"
             value={formdata.description}
             onChange={handleInputChange}
+             className="inpx login-inp inp"
           />
           <input
             type="number"
@@ -201,12 +203,13 @@ const Uploadpage = () => {
             max={2000}
             value={formdata.price}
             onChange={handleInputChange}
+             className="inpx login-inp inp"
           />
 
           <select
             id="form"
             name="category"
-            className="options"
+            className="inpx ax options"
             placeholder="category"
             value={formdata.category}
             onChange={handleInputChange}
@@ -226,6 +229,7 @@ const Uploadpage = () => {
             accept=".jpg, .jpeg, .png"
             id="5"
             onChange={handleFileChange}
+             className="iup inpx login-inp inp"
           />
           <div className="preview_img">
             {formdata.image && (
@@ -236,7 +240,7 @@ const Uploadpage = () => {
               />
             )}
           </div>
-          <button type="submit" form="uploadform" className="btn submitbtn">
+          <button type="submit" form="uploadform" className="cun btn submitbtn">
             submit
           </button>
         </form>
