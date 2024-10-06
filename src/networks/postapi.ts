@@ -4,7 +4,7 @@ import { Post } from "../models/post";
 import {User} from "../models/user"
 
 //const url = "https://pixel-store-backend.onrender.com";
-const url = "http://tm-env-3.eba-jmasuhje.ap-south-1.elasticbeanstalk.com"
+const url = "https://api.pixelstore.pics"
 export interface uploadPost {
   image: string;
   image_watermark: string;
