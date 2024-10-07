@@ -36,7 +36,7 @@ const Uploadpage = () => {
     image_watermark: "",
     title: "",
     description: "",
-    price: 10,
+    price:0,
     category: "",
   };
   const [formdata, setFormData] = useState<uploadPost>(x);
@@ -103,9 +103,13 @@ const Uploadpage = () => {
       image.src = URL.createObjectURL(file);
   
       image.onload = () => {
-        canvas.width = image.width;
-        canvas.height = image.height;
+        let width = image.width;
+        let height = image.height;
   
+        
+        canvas.width = width;
+        canvas.height = height;
+        
         ctx.drawImage(image, 0, 0);
   
         const watermarkText = "PixelStore PixelStore PixelStore PixelStore";
@@ -137,6 +141,7 @@ const Uploadpage = () => {
 
   async function submitData(post: uploadPost) {
     try {
+      //console.log(post)
       const response = await POSTAPI.createPost(post);
       onSaved(response);
     } catch (error) {
@@ -150,13 +155,15 @@ const Uploadpage = () => {
       image_watermark:"",
       description:"",
       title:"",
-      price:10,
+      price:0,
       category:"",
     })
     alert("added succesffully");
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    
     e.preventDefault();
+    //console.log(formdata.image_watermark)
     if (
       !formdata.title.trim() ||
       !formdata.image.trim() ||
@@ -175,7 +182,7 @@ const Uploadpage = () => {
       <Navbar/>
       <h1 className="heading-upload a1" style={{color:"#ddeae0"}}>Create a Post</h1>
       <div className="loginpage-container upload-form">
-        <form onSubmit={handleSubmit} id="bx uploadform" className="form">
+        <form onSubmit={handleSubmit} id="uploadform" className="bx form">
           <input
             placeholder="title"
             type="text"
@@ -199,7 +206,7 @@ const Uploadpage = () => {
             placeholder="₹ Price"
             name="price"
             id="4"
-            min={10}
+            min={0}
             max={2000}
             value={formdata.price}
             onChange={handleInputChange}

@@ -3,8 +3,8 @@ import { unescapeLeadingUnderscores } from "typescript";
 import { Post } from "../models/post";
 import {User} from "../models/user"
 
-const url = "https://pixel-store-backend.onrender.com";
-//const url = "http://localhost:8000"
+const url = "";
+//const url = "http://Tm-env-3.eba-jmasuhje.ap-south-1.elasticbeanstalk.com"
 export interface uploadPost {
   image: string;
   image_watermark: string;
@@ -15,7 +15,7 @@ export interface uploadPost {
 }
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch(input, init);
+  const response = await fetch( input, init);
   if(response.status===304){
     alert(304)
   }
@@ -29,16 +29,16 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
 }
 
 export async function getPosts(): Promise<Post[]> {
-  const response = await fetchData(url+"/welcome/", {
+  const response = await fetchData("/welcome/", {
     method: "GET",
-    cache:'no-store',
-    credentials: "include",
+    // cache:'no-store',
+    // credentials: "include",
   });
   return response.json();
 }
 
 export async function setSeller(): Promise<User>{
-  const response = await fetchData(url+'/api/user/setseller',{
+  const response = await fetchData('/api/user/setseller',{
     method:"PATCH",
     cache:'no-store',
     credentials:"include"
@@ -47,7 +47,7 @@ export async function setSeller(): Promise<User>{
 }
 
 export async function createPost(post: uploadPost): Promise<Post> {
-  const response = await fetchData(url+"/api/posts/", {
+  const response = await fetchData("/api/posts/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -66,13 +66,13 @@ export interface LoginCred{
   password:string
 }
 export async function Login(user: LoginCred):Promise<User>{
-  const response = await fetchData(url+"/api/user/login",{
+  const response = await fetchData("/api/user/login",{
     method:"POST",
-    credentials:"include",
+    // credentials:"include",
     headers:{
       "Content-Type": "application/json"
     },
-    cache:'no-store',
+    // cache:'no-store',
     body:JSON.stringify(user)
   })
   return response.json()
@@ -87,13 +87,13 @@ export interface signupcred{
 
 export async function Signup(user: signupcred):Promise<User>{
   
-    const response = await fetchData(url+"/api/user/signup",{
+    const response = await fetchData("/api/user/signup",{
       method:"POST",
-      credentials:"include",
+      // credentials:"include",
       headers:{
         "Content-Type":"application/json"
       },
-      cache:'no-store',
+      // cache:'no-store',
       body:JSON.stringify(user)
     })
     return response.json()
@@ -101,20 +101,20 @@ export async function Signup(user: signupcred):Promise<User>{
 }
 
 export async function getAuthUser ():Promise<User>{
-  const response = await fetchData(url+"/api/user/", {
+  const response = await fetchData("/api/user/", {
     method:"GET",
-    credentials:"include",
-    cache:'no-store'
+    // credentials:"include",
+    // cache:'no-store'
   })
   return response.json()
 }
 
 
 export async function getPostsWelcome(): Promise<Post[]> {
-  const response = await fetchData(url+"/welcome/", {
+  const response = await fetchData("/welcome/", {
     method: "GET",
-    cache:'no-store',
-    credentials: "include",
+    // cache:'no-store',
+    // credentials: "include",
   });
   return response.json();
 }
@@ -183,7 +183,7 @@ export async function Logout(){
 }
 
 export async function getMyPosts(): Promise<Post[]> {
-  const response = await fetchData(url+"/api/posts/mycollection/", {
+  const response = await fetchData("/api/posts/mycollection/", {
     method: "GET",
     cache:'no-store',
     credentials: "include",
@@ -197,7 +197,7 @@ export async function deletePost(postid:string){
 
 
 export async function setAsseller():Promise<User>{
-    const res = await fetchData(url+'/api/user/setseller',{
+    const res = await fetchData('/api/user/setseller',{
       method:"PATCH",
       cache:"no-store",
       credentials:"include"
@@ -210,7 +210,7 @@ export interface EditUserType{
   username:string,
 }
 export async function EditUser(user: EditUserType):Promise<User>{
-  const response = await fetchData(url+"/api/user/editusername",{
+  const response = await fetchData("/api/user/editusername",{
     method:"PATCH",
     credentials:"include", 
     headers:{
@@ -225,7 +225,7 @@ export async function EditUser(user: EditUserType):Promise<User>{
 
 
 export async function RegUser(){
-  const res = await fetchData(url+"/api/payments/register",{
+  const res = await fetchData("/api/payments/register",{
     method:"POST",
     cache:"no-store",
     credentials:"include"
@@ -242,7 +242,7 @@ export interface AccountConnect{
 }
 
 export async function getStatus():Promise<AccountConnect>{
-  const res = await fetchData(url+"/api/payments/status",{
+  const res = await fetchData("/api/payments/status",{
     method:"GET",
     credentials:"include",
     cache:"no-store"
@@ -251,7 +251,7 @@ export async function getStatus():Promise<AccountConnect>{
 }
 
 export async function createSession(postid:string){
-  const res = await fetchData(url+"/api/payments/session/"+postid,{
+  const res = await fetchData("/api/payments/session/"+postid,{
     method:"GET",
     credentials:"include",
     cache:"no-store"
@@ -266,7 +266,7 @@ export interface SessionStatus{
 }
 
 export async function chechSessionStatus(postid:string):Promise<SessionStatus>{
-  const res = await fetchData(url+"/api/payments/session/status/"+postid,{
+  const res = await fetchData("/api/payments/session/status/"+postid,{
     method:"GET",
     credentials:"include",
     cache:"no-store"
@@ -278,7 +278,7 @@ export interface EditPass{
   password:string,
 }
 export async function EditPassword(user: EditPass):Promise<User>{
-  const response = await fetchData(url+"/api/user/password/edit",{
+  const response = await fetchData("/api/user/password/edit",{
     method:"PATCH",
     credentials:"include", 
     headers:{
