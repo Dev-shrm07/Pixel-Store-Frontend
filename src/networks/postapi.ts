@@ -40,8 +40,8 @@ export async function getPosts(): Promise<Post[]> {
 export async function setSeller(): Promise<User>{
   const response = await fetchData('/api/user/setseller',{
     method:"PATCH",
-    cache:'no-store',
-    credentials:"include"
+    // cache:'no-store',
+    // credentials:"include"
   })
   return response.json()
 }
@@ -52,8 +52,8 @@ export async function createPost(post: uploadPost): Promise<Post> {
     headers: {
       "Content-Type": "application/json",
     },
-    cache:'no-store',
-    credentials: "include",
+    // cache:'no-store',
+    // credentials: "include",
     body: JSON.stringify(post),
   });
   return response.json();
@@ -124,8 +124,8 @@ const UrlSave:string = url+'/api/posts/save/'
 export async function getPostByid(id:string):Promise<Post[]>{
   const response = await fetchData(`${Url}${id}`,{
     method:"GET",
-    cache:"no-store",
-    credentials:"include"
+    // cache:"no-store",
+    // credentials:"include"
   })
   return response.json()
 }
@@ -133,8 +133,8 @@ export async function getPostByid(id:string):Promise<Post[]>{
 export async function savePost(id:string|null){
   const response = await fetchData(`${UrlSave}${id}`,{
     method:"POST",
-    cache:"no-store",
-     credentials:"include"
+    // cache:"no-store",
+    //  credentials:"include"
   })
   return response.json()
 }
@@ -142,8 +142,8 @@ export async function savePost(id:string|null){
 export async function getSavedPosts():Promise<Post[]>{
   const response = await fetchData(`${Url}${"saved"}`,{
     method:"GET",
-    cache:"no-store",
-    credentials:"include"
+    // cache:"no-store",
+    // credentials:"include"
   })
   return response.json()
 }
@@ -165,8 +165,8 @@ export async function updatePost(post:updatePostBody):Promise<Post[]>{
     headers:{
       "Content-Type":"application/json"
     },
-    cache:"no-store",
-    credentials:"include",
+    // cache:"no-store",
+    // credentials:"include",
     body:JSON.stringify(post)
   })
   return res.json()
@@ -176,8 +176,8 @@ export async function updatePost(post:updatePostBody):Promise<Post[]>{
 export async function Logout(){
   await fetchData(url+"/api/user/logout",{
     method:"POST",
-    cache:"no-store",
-    credentials:"include"
+    // cache:"no-store",
+    // credentials:"include"
   })
   
 }
@@ -185,8 +185,8 @@ export async function Logout(){
 export async function getMyPosts(): Promise<Post[]> {
   const response = await fetchData("/api/posts/mycollection/", {
     method: "GET",
-    cache:'no-store',
-    credentials: "include",
+    // cache:'no-store',
+    // credentials: "include",
   });
   return response.json();
 }
@@ -199,8 +199,8 @@ export async function deletePost(postid:string){
 export async function setAsseller():Promise<User>{
     const res = await fetchData('/api/user/setseller',{
       method:"PATCH",
-      cache:"no-store",
-      credentials:"include"
+      // cache:"no-store",
+      // credentials:"include"
     })
     return res.json()
 }
@@ -212,11 +212,11 @@ export interface EditUserType{
 export async function EditUser(user: EditUserType):Promise<User>{
   const response = await fetchData("/api/user/editusername",{
     method:"PATCH",
-    credentials:"include", 
+    // credentials:"include", 
     headers:{
       "Content-Type": "application/json"
     },
-    cache:'no-store',
+    // cache:'no-store',
     body:JSON.stringify(user)
   })
   return response.json()
@@ -227,8 +227,8 @@ export async function EditUser(user: EditUserType):Promise<User>{
 export async function RegUser(){
   const res = await fetchData("/api/payments/register",{
     method:"POST",
-    cache:"no-store",
-    credentials:"include"
+    // cache:"no-store",
+    // credentials:"include"
   })
   return res.json()
 }
@@ -244,8 +244,8 @@ export interface AccountConnect{
 export async function getStatus():Promise<AccountConnect>{
   const res = await fetchData("/api/payments/status",{
     method:"GET",
-    credentials:"include",
-    cache:"no-store"
+    // credentials:"include",
+    // cache:"no-store"
   })
   return res.json()
 }
@@ -253,8 +253,8 @@ export async function getStatus():Promise<AccountConnect>{
 export async function createSession(postid:string){
   const res = await fetchData("/api/payments/session/"+postid,{
     method:"GET",
-    credentials:"include",
-    cache:"no-store"
+    // credentials:"include",
+    // cache:"no-store"
   })
   return res.json()
 }
@@ -268,8 +268,8 @@ export interface SessionStatus{
 export async function chechSessionStatus(postid:string):Promise<SessionStatus>{
   const res = await fetchData("/api/payments/session/status/"+postid,{
     method:"GET",
-    credentials:"include",
-    cache:"no-store"
+    // credentials:"include",
+    // cache:"no-store"
   })
   return res.json()
 }
@@ -280,11 +280,11 @@ export interface EditPass{
 export async function EditPassword(user: EditPass):Promise<User>{
   const response = await fetchData("/api/user/password/edit",{
     method:"PATCH",
-    credentials:"include", 
+    // credentials:"include", 
     headers:{
       "Content-Type": "application/json"
     },
-    cache:'no-store',
+    // cache:'no-store',
     body:JSON.stringify(user)
   })
   return response.json()
