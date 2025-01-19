@@ -1,6 +1,6 @@
 # Pixel Store Frontend 🌈
 
-Welcome to Pixel Store, a marketplace for users to buy and sell stock images. This frontend repository is built using TypeScript and React, with React Router handling different API requests to interact with the backend. The app is live at [Site](https://pixelstore.pics/)
+Welcome to Pixel Store, a marketplace for users to buy and sell stock images. This frontend repository is built using TypeScript and React, with React Router handling different API requests to interact with the backend. The app is live at [pixelstore.pics](https://pixelstore.pics/)
 
 
 ## Introduction 🚀
