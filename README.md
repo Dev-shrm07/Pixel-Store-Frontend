@@ -36,6 +36,7 @@ Highlight the key features of the frontend. For example:
 
 <img width="953" alt="detail" src="https://github.com/user-attachments/assets/d7a08ce8-eb2d-4488-80ea-5f40e27e0891" />
 
+
 <img width="793" alt="checkout" src="https://github.com/user-attachments/assets/1a78e61a-3c1a-44b6-a267-7a32b10677e8" />
 
 
