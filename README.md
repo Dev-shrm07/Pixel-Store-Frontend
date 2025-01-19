@@ -16,14 +16,7 @@ Highlight the key features of the frontend. For example:
 - Filters for browsing posts
 - Different Collections Like Saved, Uploaded
 - Activation of stripe connect account in order to create a post, so that payments can be direct.
-- 
-# Contributing 🤝
 
-Welcome to Pixel Store Frontend! We appreciate contributions from the community. Please follow the guidelines below for submitting issues, feature requests, or pull requests.
-
-## Users 👥
-
-A big shoutout to our amazing community! Your support and creativity make Pixel Store thrive. Thank you for being a part of our journey.
 
 
 
